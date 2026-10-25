@@ -19,12 +19,12 @@ int main(void)
 	j->makeSound();
 	meta->makeSound();
 
-	std::cout << "\n--- 3. delete through Animal* (Dog/Cat destructor runs first) ---" << std::endl;
+	std::cout << "\n--- 3. delete through Animal* ---" << std::endl;
 	delete meta;
 	delete j;
 	delete i;
 
-	std::cout << "\n--- 4. wrong classes: no virtual, so the parent sound ---" << std::endl;
+	std::cout << "\n--- 4. wrong classes: no virtual ---" << std::endl;
 	const WrongAnimal* wrong = new WrongCat();
 	std::cout << wrong->getType() << " " << std::endl;
 	wrong->makeSound();

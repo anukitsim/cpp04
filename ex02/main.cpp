@@ -16,27 +16,37 @@ int main(void)
 
 	std::cout << "\n--- 2. array: half Dogs, half Cats ---" << std::endl;
 	Animal* animals[4];
-	for (int k = 0; k < 4; k++)
+	int k = 0;
+	while (k < 4)
 	{
 		if (k < 2)
 			animals[k] = new Dog();
 		else
 			animals[k] = new Cat();
+		k++;
 	}
 
 	std::cout << "\n--- 3. every animal makes its own sound ---" << std::endl;
-	for (int k = 0; k < 4; k++)
+	k = 0;
+	while (k < 4)
+	{
 		animals[k]->makeSound();
+		k++;
+	}
 
 	std::cout << "\n--- 4. delete every animal as Animal* ---" << std::endl;
-	for (int k = 0; k < 4; k++)
+	k = 0;
+	while (k < 4)
+	{
 		delete animals[k];
+		k++;
+	}
 
 	std::cout << "\n--- 5. deep copy: copy constructor ---" << std::endl;
 	Dog dog;
-	dog.getBrain()->ideas[0] = "chase the cat";
+	dog.getBrain()->ideas[0] = "original";
 	Dog copy(dog);
-	copy.getBrain()->ideas[0] = "sleep";
+	copy.getBrain()->ideas[0] = "changed";
 	std::cout << "dog idea:  " << dog.getBrain()->ideas[0] << std::endl;
 	std::cout << "copy idea: " << copy.getBrain()->ideas[0] << std::endl;
 	std::cout << "dog brain:  " << dog.getBrain() << std::endl;
@@ -44,10 +54,10 @@ int main(void)
 
 	std::cout << "\n--- 6. deep copy: operator= ---" << std::endl;
 	Cat cat;
-	cat.getBrain()->ideas[0] = "eat fish";
+	cat.getBrain()->ideas[0] = "original";
 	Cat other;
 	other = cat;
-	other.getBrain()->ideas[0] = "climb a tree";
+	other.getBrain()->ideas[0] = "changed";
 	std::cout << "cat idea:   " << cat.getBrain()->ideas[0] << std::endl;
 	std::cout << "other idea: " << other.getBrain()->ideas[0] << std::endl;
 
